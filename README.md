@@ -32,3 +32,58 @@ AWS Services and Technologies Used:
  Python 3.12           Application programming language.                             
  Pillow                Image validation, resizing and optimisation.                  
  Boto3                 AWS SDK for Python used to interact with AWS services.
+
+System Architecture
+SmartThumb SA uses an event-driven, serverless AWS architecture. Product images are automatically processed when uploaded to a private Amazon S3 source bucket, eliminating the need for continuously running servers.
+
+Processing Workflow:
+
+1. Product Image Upload — Amazon S3
+A user uploads a JPEG or PNG product photograph to the source S3 bucket. The bucket is private, and an `ObjectCreated` event notification automatically invokes AWS Lambda.
+
+2. Image Processing — AWS Lambda and Pillow
+The Lambda function retrieves the uploaded image using Boto3 and processes it using Python's Pillow library.
+
+The function:
+- Validates the image format.
+- Corrects image orientation using EXIF metadata.
+- Resizes the image to fit within 300 × 300 pixels while preserving its aspect ratio.
+- Converts the processed image to JPEG format.
+- Optimises the output using JPEG quality settings.
+
+3. Thumbnail Storage — Amazon S3
+The optimised thumbnail is saved in a separate private S3 output bucket using the naming convention:
+`original_filename_thumb.jpg`, Separating the source and output buckets prevents generated thumbnails from triggering the processing function recursively.
+
+4. AI-Powered Product Labelling — Amazon Rekognition
+After thumbnail generation, the Lambda function invokes Amazon Rekognition's `DetectLabels` API to analyse the original product image & returns suggested labels and confidence scores. These are AI-generated suggestions rather than guaranteed product classifications.
+
+The implementation uses:
+- Maximum labels: `10`
+- Minimum confidence: `75%`
+
+5. JSON Metadata Generation
+The Lambda function saves the detected labels as a JSON file in the output S3 bucket.
+
+The metadata follows the naming convention:
+`original_filename_labels.json`and Each metadata file includes:
+- Original image filename.
+- Generated thumbnail filename.
+- AI-detected labels.
+- Confidence scores.
+
+
+6. Monitoring — Amazon CloudWatch
+AWS Lambda automatically sends execution logs, execution-duration and memory-usage information to Amazon CloudWatch.
+
+The application records information including:
+- Original and thumbnail dimensions.
+- Original and processed file sizes.
+- Percentage image-size reduction.
+- AI labelling results.
+- Processing errors.
+
+Security
+AWS Identity and Access Management (IAM) controls access between services.
+
+The Lambda execution role grants permissions required to read source images, write processed outputs, invoke Amazon Rekognition and publish execution logs. Both S3 buckets are private, and AWS credentials are not embedded in the application source code.
