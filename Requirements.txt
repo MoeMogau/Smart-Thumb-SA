@@ -1,0 +1,4 @@
+SmartThumb SA - Python dependencies
+
+boto3
+Pillow
