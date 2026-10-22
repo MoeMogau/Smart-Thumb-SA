@@ -87,3 +87,18 @@ Security
 AWS Identity and Access Management (IAM) controls access between services.
 
 The Lambda execution role grants permissions required to read source images, write processed outputs, invoke Amazon Rekognition and publish execution logs. Both S3 buckets are private, and AWS credentials are not embedded in the application source code.
+
+Deployment Instructions
+
+1. Amazon S3: Create two private buckets for source images and processed outputs.
+2. AWS IAM: Create a Lambda execution role with permissions to read source images, write outputs, invoke Rekognition and publish CloudWatch logs.
+3. AWS Lambda: Create a Python 3.12 function with 512 MB memory and a 30-second timeout.
+4. Dependencies: Package Pillow in a compatible Lambda layer and attach it to the function.
+5. Environment Variables: Configure:
+   * `OUTPUT_BUCKET` — Name of the destination S3 bucket.
+   * `ENABLE_REKOGNITION` — Set to `true`.
+6. S3 Trigger: Configure an `ObjectCreated` event notification on the source bucket to invoke Lambda.
+7. Testing: Upload a JPEG or PNG image and verify that the thumbnail and JSON metadata appear in the output bucket.
+8. Monitoring: Review execution logs in Amazon CloudWatch.
+
+Create AWS resources in the same supported Region. AWS charges may apply.
