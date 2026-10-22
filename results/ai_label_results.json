@@ -1,0 +1,152 @@
+[
+  {
+    "image": "Tabi Ballerinas 6-Gelb.jpg",
+    "labels_file": "Tabi Ballerinas 6-Gelb_labels.json",
+    "ai_labels": [
+      {
+        "label": "Clothing",
+        "confidence": 100
+      },
+      {
+        "label": "Footwear",
+        "confidence": 100
+      },
+      {
+        "label": "Shoe",
+        "confidence": 100
+      },
+      {
+        "label": "High Heel",
+        "confidence": 97.48
+      },
+      {
+        "label": "Sneaker",
+        "confidence": 94.37
+      },
+      {
+        "label": "Sandal",
+        "confidence": 94.26
+      }
+    ]
+  },
+  {
+    "image": "#donnevieamonpinterest.jpg",
+    "labels_file": "#donnevieamonpinterest_labels.json",
+    "ai_labels": [
+      {
+        "label": "Clothing",
+        "confidence": 100
+      },
+      {
+        "label": "Footwear",
+        "confidence": 100
+      },
+      {
+        "label": "Shoe",
+        "confidence": 100
+      },
+      {
+        "label": "Sneaker",
+        "confidence": 100
+      }
+    ]
+  },
+  {
+    "image": "Sofa chair.jpg",
+    "labels_file": "Sofa chair_labels.json",
+    "ai_labels": [
+      {
+        "label": "Couch",
+        "confidence": 100
+      },
+      {
+        "label": "Cushion",
+        "confidence": 100
+      },
+      {
+        "label": "Furniture",
+        "confidence": 100
+      },
+      {
+        "label": "Home Decor",
+        "confidence": 100
+      },
+      {
+        "label": "Linen",
+        "confidence": 99.78
+      },
+      {
+        "label": "Pillow",
+        "confidence": 99.23
+      },
+      {
+        "label": "Indoors",
+        "confidence": 99.23
+      },
+      {
+        "label": "Living Room",
+        "confidence": 99.23
+      },
+      {
+        "label": "Room",
+        "confidence": 99.23
+      },
+      {
+        "label": "Chair",
+        "confidence": 88.72
+      }
+    ]
+  },
+  {
+    "image": "sweartshirt.jpg",
+    "labels_file": "sweartshirt_labels.json",
+    "ai_labels": [
+      {
+        "label": "Clothing",
+        "confidence": 100
+      },
+      {
+        "label": "Knitwear",
+        "confidence": 100
+      },
+      {
+        "label": "Sweater",
+        "confidence": 100
+      },
+      {
+        "label": "Sweatshirt",
+        "confidence": 100
+      },
+      {
+        "label": "Hoodie",
+        "confidence": 99.95
+      },
+      {
+        "label": "Coat",
+        "confidence": 84.85
+      }
+    ]
+  },
+  {
+    "image": "Sneakers-puma.jpg",
+    "labels_file": "Sneakers-puma_labels.json",
+    "ai_labels": [
+      {
+        "label": "Clothing",
+        "confidence": 100
+      },
+      {
+        "label": "Footwear",
+        "confidence": 100
+      },
+      {
+        "label": "Shoe",
+        "confidence": 100
+      },
+      {
+        "label": "Sneaker",
+        "confidence": 100
+      }
+    ]
+  }
+]
