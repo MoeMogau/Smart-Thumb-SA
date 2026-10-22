@@ -1,0 +1,6 @@
+image_name,original_dimensions,thumbnail_dimensions,original_bytes,thumbnail_bytes,pixel_reduction_percent,file_size_reduction_percent,lambda_duration_ms,status
+Tabi Ballerinas 6-Gelb.jpg,735x919,240x300,26932,5696,89.34,78.85,1113.51,Passed
+#donnevieamonpinterest.jpg,736x981,225x300,115248,14461,90.65,87.45,982.24,Passed
+Sofa chair.jpg,400x400,300x300,23448,14185,43.75,39.50,,Passed
+sweartshirt.jpg,736x736,300x300,38581,10827,83.39,71.94,,Passed
+Sneakers-puma.jpg,736x920,240x300,91754,13969,89.37,84.78,,Passed
